@@ -66,7 +66,7 @@ with col1:
 with col2:
     show_mentions_wc = st.checkbox('Word Cloud - Menções')
 
-# Mostrar a Word Cloud selecionada com legendas
+# Word Cloud com legendas
 if show_files_wc:
     st.subheader('Word Cloud - Número de Arquivos')
     col1, col2 = st.columns([2, 1])
@@ -75,7 +75,7 @@ if show_files_wc:
         generate_wordcloud(file_wordcloud_data, colors)
     with col2:
         display_legend(df, 'Número de Arquivos')
-    st.markdown("<hr>", unsafe_allow_html=True)  # Linha horizontal centralizada após o Word Cloud de Arquivos
+    st.markdown("<hr>", unsafe_allow_html=True)
 
 if show_mentions_wc:
     st.subheader('Word Cloud - Número de Menções')
