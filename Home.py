@@ -8,7 +8,7 @@ st.set_page_config(
  
 st.title('Home 🌎')
 introducao = '''
-- Seleção de três jornais brasileiros de alta circulação para investigar seu impacto na formação da Opinião Pública em temas políticos nacionais e internacionais envolvendo o :orange[Mercosul]
+- Seleção de três jornais brasileiros de alta circulação para investigar seu impacto na formação da Opinião Pública em temas políticos nacionais envolvendo o :orange[Mercosul]
     - :blue[O Globo]
     - :red[Folha de São Paulo]
     - :green[Estadão]
