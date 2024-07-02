@@ -38,7 +38,7 @@ colors = {
     'Consumo': 'brown',
     'Cultura': 'magenta',
     'Identidade': 'grey',
-    'Autoritarismo': 'gold'
+    'Autoritarismo': 'black'
 }
 
 # Word Cloud
