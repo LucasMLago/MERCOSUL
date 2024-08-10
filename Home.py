@@ -5,6 +5,16 @@ st.set_page_config(
     page_icon='🗺️',
     initial_sidebar_state='expanded'
 )
+
+st.logo('images/jornal.png')
+
+st.html("""
+  <style>
+    [alt=Logo] {
+      height: 4rem;
+    }
+  </style>
+        """)
  
 st.title('Home 🌎')
 introducao = '''

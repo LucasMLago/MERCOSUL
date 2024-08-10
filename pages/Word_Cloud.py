@@ -2,9 +2,20 @@ import streamlit as st
 import pandas as pd
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+from data import utils
 
 st.set_page_config(page_title='Mercosul Word Cloud', page_icon='☁️', initial_sidebar_state='expanded')
 st.title('Word Cloud ☁️')
+
+st.logo('images/jornal.png')
+
+st.html("""
+  <style>
+    [alt=Logo] {
+      height: 4rem;
+    }
+  </style>
+        """)
 
 checkbox_style = """
 <style>
@@ -20,11 +31,7 @@ checkbox_style = """
 st.markdown(checkbox_style, unsafe_allow_html=True)
 
 # Dados
-data = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Arquivos': [43, 93, 21, 300, 289, 61, 77, 135, 13],
-    'Número de Menções': [78, 165, 24, 705, 789, 87, 130, 252, 14]
-}
+data = utils.word_cloud_data
 
 df = pd.DataFrame(data)
 

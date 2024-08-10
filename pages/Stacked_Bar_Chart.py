@@ -1,40 +1,28 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+from data import utils
 
 st.set_page_config(page_title='Mercosul Stacked Bar Graph', page_icon='📊', initial_sidebar_state='expanded', layout='wide')
 st.title('Stacked Bar Graph 📊')
 
+st.logo('images/jornal.png')
+
+st.html("""
+  <style>
+    [alt=Logo] {
+      height: 4rem;
+    }
+  </style>
+        """)
+
 # Dados
-data_folha_arquivos = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Arquivos': [9, 6, 33, 92, 124, 11, 25, 38, 2]
-}
-
-data_globo_arquivos = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Arquivos': [17, 18, 8, 79, 56, 19, 27, 47, 5]
-}
-
-data_estadao_arquivos = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Arquivos': [17, 42, 7, 129, 109, 31, 25, 50, 6]
-}
-
-data_folha_mencoes = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Menções': [14, 50, 7, 166, 276, 12, 34, 68, 2]
-}
-
-data_globo_mencoes = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Menções': [21, 35, 10, 191, 132, 31, 57, 71, 6]
-}
-
-data_estadao_mencoes = {
-    'Palavras': ['Cultura', 'Integração', 'Identidade', 'Economia', 'Comércio', 'Consumo', 'Ditadura', 'Democracia', 'Autoritarismo'],
-    'Número de Menções': [43, 80, 7, 390, 44, 113, 39, 252, 6]
-}
+data_folha_arquivos = utils.data_folha_arquivos
+data_globo_arquivos = utils.data_globo_arquivos
+data_estadao_arquivos = utils.data_estadao_arquivos
+data_folha_mencoes = utils.data_folha_mencoes
+data_globo_mencoes = utils.data_globo_mencoes
+data_estadao_mencoes = utils.data_estadao_mencoes
 
 # Transforma em df
 df_folha_arquivos = pd.DataFrame(data_folha_arquivos)
@@ -95,8 +83,6 @@ def stacked_bar_chart_mencoes(jornais, df):
     )
     
     return chart
-
-
 
 ################## Arquivos ##################
 selected_journals_arquivos = st.multiselect('Selecione os jornais para os quais você deseja ver o total de palavras por arquivos:', ['Folha de São Paulo', 'O Globo', 'Estadão'])

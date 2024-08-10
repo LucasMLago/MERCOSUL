@@ -1,12 +1,23 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from pywaffle import Waffle
+from data import utils
 
 st.set_page_config(
     page_title='Mercosul Waffle Chart',
     page_icon='🧇'
 )
 st.title('Waffle Chart 🧇')
+
+st.logo('images/jornal.png')
+
+st.html("""
+  <style>
+    [alt=Logo] {
+      height: 4rem;
+    }
+  </style>
+        """)
 
 ######################### Waffle Chart #########################
 def plot_waffle_chart(data, years):
@@ -59,23 +70,7 @@ def plot_waffle_chart(data, years):
     st.pyplot(fig)
 
 # Dados
-data = {
-    'Folha de São Paulo': {
-        2016: 65,
-        2017: 152,
-        2018: 138
-    },
-    'O Globo': {
-        2016: 37,
-        2017: 103,
-        2018: 103
-    },
-    'Estadão': {
-        2016: 116,
-        2017: 96,
-        2018: 16
-    }
-}
+data = utils.waffle_data
 
 # Seleciona Anos
 years = st.multiselect('Selecione os anos', list(data['Folha de São Paulo'].keys()))
